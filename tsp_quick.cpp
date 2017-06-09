@@ -290,14 +290,14 @@ int get_city_info_and_outputfile(const char *fileinput, const char *fileoutput)
 		printf("%d, %d, %d\n", tour_nn[i].index, tour_nn[i].x, tour_nn[i].y);
 	}
 	printf("\n");
-	tour_new = algorithm_2_opt(tour_nn, num);
-		for (int i = 0; i < num; i++)
-		{
-		printf("%d, %d, %d\n", tour_new[i].index, tour_new[i].x, tour_new[i].y);
-		}
-		printf("\n");
+//	tour_new = algorithm_2_opt(tour_nn, num);
+//		for (int i = 0; i < num; i++)
+//		{
+//		printf("%d, %d, %d\n", tour_new[i].index, tour_new[i].x, tour_new[i].y);
+//		}
+//		printf("\n");
 			
-	int total_distance = tour_distance(tour_new, num);
+	int total_distance = tour_distance(tour_nn, num);
 	
 	   FILE * ofile;
 	   ofile = fopen(fileoutput, "w");
@@ -310,11 +310,11 @@ int get_city_info_and_outputfile(const char *fileinput, const char *fileoutput)
 
 	   for (int i=0; i<num; i++)
 	   {
-	   fprintf(ofile, "%d\n",tour_new[i].index);
+	   fprintf(ofile, "%d\n",tour_nn[i].index);
 	   }
 	   for (int i=0; i<num; i++)
 	   {
-	   printf("City %i: %d\n", i+1, tour_new[i].index);
+	   printf("City %i: %d\n", i+1, tour_nn[i].index);
 	   }
 	   fclose(ofile);
 	   printf("\n");
